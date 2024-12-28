@@ -1,6 +1,6 @@
 {
   "name": "universal-tax-calculator",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "A comprehensive tax calculator supporting multiple countries",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -18,7 +18,7 @@
     "lint": "eslint src/**/*.ts",
     "lint:fix": "eslint src/**/*.ts --fix",
     "prepare": "husky",
-    "prepublishOnly": "npm test && npm run lint",
+    "prepublish": "npm run clean && npm test && npm run lint && npm run build && npm pack",
     "preVersion": "npm run lint",
     "version": "npm run format && git add -A . && git commit -m 'chore: prepare for release'",
     "postVersion": "git push && git push --tags",
@@ -68,9 +68,6 @@
     "rimraf": "^5.0.5",
     "ts-jest": "^29.1.2",
     "typescript": "^5.3.3"
-  },
-  "dependencies": {
-    "lodash": "^4.17.21"
   },
   "engines": {
     "node": ">=14.0.0"
